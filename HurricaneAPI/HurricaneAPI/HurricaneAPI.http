@@ -1,0 +1,11 @@
+@HurricaneAPI_HostAddress = https://localhost:9090
+
+
+GET {{HurricaneAPI_HostAddress}}/hurricaneinfo/default
+
+###
+
+
+GET {{HurricaneAPI_HostAddress}}/all
+
+###
