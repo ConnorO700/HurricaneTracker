@@ -12,8 +12,8 @@ string environment = ".Development";
 if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") != "Production")
 {
     environment = ".Production";
-    Trace.WriteLine("Starting Quote Center API in '" + environment + "' environment.");
 }
+Trace.WriteLine($"Starting Quote Center API in {environment} environment.");
 
 builder.Services.Configure<HurricaneDatabaseSettings>(
     builder.Configuration.GetSection("HurricaneDB"));
@@ -27,7 +27,7 @@ if (urls.Count == 0)
     Trace.WriteLine($"Quote Center CORS Error: Urls are missing from appsettings{environment}.json");
 }
 
-// Add CORS policy to allow for resource sharing with react frontend
+// Add CORS policy to allow for cross-origin resource sharing with browser
 
 builder.Services.AddCors(options =>
 {
@@ -43,7 +43,7 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddSingleton<HurricaneService>();
 
-builder.Services.AddSingleton<HurricaneBL>();
+builder.Services.AddTransient <IHurricaneBL, HurricaneBL>();
 
 builder.Services.AddControllers();
 

@@ -1,5 +1,6 @@
 ﻿namespace HurricaneAPI.Models
 {
+    //Is a box shape for filtering out any Hurricanes that never enter
     public class SearchArea
     {
         public double NorthLatitude { get; set; }

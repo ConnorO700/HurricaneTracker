@@ -18,7 +18,7 @@ namespace HurricaneAPI.Models
 
         public int MaxWindSpeed_Knots { get; set; }
 
-        public DateTime LandFallDate { get; set; }
+        public string LandFallDate { get; set; }
 
         public IEnumerable<HurricaneDetail> HurricaneDetails { get; set; }
 

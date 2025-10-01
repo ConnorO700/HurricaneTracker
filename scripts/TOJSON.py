@@ -46,7 +46,7 @@ def hurricane_csv_to_json(line):
 		'Year': int(line[4:8]),
 		'Name': line[18:28].strip(),
 		"MaxWindSpeed_Knots": 0,
-		"LandFallDate": "0001-01-01T01:00:00Z",
+		"LandFallDate": "0001-01-01T01:00:00Z", # normally I might have used Epoch time, but that only starts in 1970 and this data is older.
 		'HurricaneDetails': []
 	}
 	return hurricaneHeader

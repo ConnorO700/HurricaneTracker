@@ -10,12 +10,13 @@ namespace HurricaneAPI.Controllers
     [EnableCors("_myAllowSpecificOrigins")]
     public class HurricaneInfoController : Controller
     {
-        private readonly HurricaneBL _HurricaneBL;
-        public HurricaneInfoController(HurricaneBL hurricaneBL)
+        private readonly IHurricaneBL _HurricaneBL;
+        public HurricaneInfoController(IHurricaneBL hurricaneBL)
         {
             _HurricaneBL = hurricaneBL;
         }
 
+        //I always test controllers and initial connections with this endpoint, it servers no other purpose
         [HttpGet("default")]
         public string ControllerTest()
         {
@@ -40,6 +41,8 @@ namespace HurricaneAPI.Controllers
             }
             return Ok(hurricane);
         }
+
+        //added CRUD operations but these are not used
 
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] Hurricane hurricane)

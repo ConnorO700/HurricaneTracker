@@ -4,7 +4,8 @@ const baseurl = 'https://localhost:9090';
 
 const ApiEndpoints = {
 	GetDefault: () => { return Get(`${baseurl}/hurricaneinfo/default`) },
-	GetStormsFromArea: async (area) => { return await Post(`${baseurl}/hurricaneinfo/all`, area) }
+	GetStormsFromArea: async (area) => { return await Post(`${baseurl}/hurricaneinfo/all`, area) },
+	GetStormById: async (id) => {return await Get(`${baseurl}/hurricaneinfo/${id}`)},
 }
 
 async function Get(url) {

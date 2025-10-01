@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Table from '../components/TableView'
-import { StormColumns } from '../consts/tableStormColumns'
+import { stormHeaderColumns, tableCustomStyles } from '../consts/tableStormColumns'
 import ApiEndpoints from '../ApiEndpoints'
 
 function MainPage() {
@@ -21,14 +21,9 @@ function MainPage() {
 		fetchStorms();
 	}, [])
 
-
-
 	return (
 		<>
-			{
-				<Table title="Storm Table" data={apidata} columns={StormColumns} />
-			}
-
+			<Table title="Storm Table" data={apidata} columns={stormHeaderColumns} tableStyles={tableCustomStyles} />
 		</>
 	)
 }

@@ -4,7 +4,7 @@ using MongoDB.Driver;
 
 namespace HurricaneAPI.BL
 {
-    public class HurricaneBL
+    public class HurricaneBL : IHurricaneBL
     {
         private readonly HurricaneService _service;
         public HurricaneBL(HurricaneService service)
@@ -15,13 +15,15 @@ namespace HurricaneAPI.BL
 
         public async Task<IEnumerable<Hurricane>> GetAllInArea(SearchArea searchArea)
         {
-            var filter = Builders<Hurricane>.Filter.Where(h => h.HurricaneDetails.Where(hd =>
+            //adding a filter to bring back only hurricanes that have at least one detail in search area
+            var filter = Builders<Hurricane>.Filter.Where(h => h.LandFallDate != "0001-01-01T01:00:00Z" && h.HurricaneDetails.Where(hd =>
                 hd.Latitude <= searchArea.NorthLatitude
                 && hd.Latitude >= searchArea.SouthLatitude
                 && hd.Longitude >= searchArea.WestLongitude
                 && hd.Longitude <= searchArea.EastLongitude
             ).Any());
 
+            //add exclusion filter for details to reduce data load
             var projection = Builders<Hurricane>.Projection.Exclude(h => h.HurricaneDetails);
 
             var hurricanes = await _service.GetAsync(filter, projection);
@@ -32,10 +34,11 @@ namespace HurricaneAPI.BL
             await _service.GetAsync(id);
 
 
+        //added CRUD operations but these are not used
         public async Task Create(Hurricane hurrican) =>
             await _service.CreateAsync(hurrican);
 
-        
+
         public async Task Update(string id, Hurricane updatedHurrican) =>
             await _service.UpdateAsync(id, updatedHurrican);
 

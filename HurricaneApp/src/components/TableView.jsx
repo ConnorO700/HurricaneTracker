@@ -1,25 +1,7 @@
 import React, {useState} from 'react'
 import DataTable from 'react-data-table-component'
-const tableCustomStyles = {
-    headRow: {
-    style: {
-        color:'#223336',
-        backgroundColor: '#6bd0ffff'
-    },
-    },
-    rows: {
-    style: {
-        color: 'black',
-        backgroundColor: '#d1f5faff'
-    },
-    stripedStyle: {
-        color: 'black',
-        backgroundColor: 'white'
-    }
-    }
-}
 
-function TableView({title, data, columns}) {
+function TableView({title, data, columns, tableStyles}) {
 	return (
 		<>
         <section className={'bg-blue-100 px-4 py-10'}>
@@ -36,7 +18,7 @@ function TableView({title, data, columns}) {
             paginationRowsPerPageOptions={[10, 20, 50, 100]}
             highlightOnHover
             striped
-            customStyles={tableCustomStyles}
+            customStyles={tableStyles}
             /> 
             </div>
         </div>
