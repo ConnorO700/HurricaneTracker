@@ -17,10 +17,10 @@ namespace HurricaneAPI.BL
         {
             //adding a filter to bring back only hurricanes that have at least one detail in search area
             var filter = Builders<Hurricane>.Filter.Where(h => h.LandFallDate != "0001-01-01T01:00:00Z" && h.HurricaneDetails.Where(hd =>
-                hd.Latitude <= searchArea.NorthLatitude
-                && hd.Latitude >= searchArea.SouthLatitude
-                && hd.Longitude >= searchArea.WestLongitude
-                && hd.Longitude <= searchArea.EastLongitude
+                hd.Latitude <= searchArea.NorthParallel
+                && hd.Latitude >= searchArea.SouthParallel
+                && hd.Longitude >= searchArea.WestMeridian
+                && hd.Longitude <= searchArea.EastMeridian
             ).Any());
 
             //add exclusion filter for details to reduce data load

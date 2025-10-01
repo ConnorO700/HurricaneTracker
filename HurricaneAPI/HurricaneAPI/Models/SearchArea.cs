@@ -3,9 +3,9 @@
     //Is a box shape for filtering out any Hurricanes that never enter
     public class SearchArea
     {
-        public double NorthLatitude { get; set; }
-        public double SouthLatitude { get; set; }
-        public double WestLongitude { get; set; }
-        public double EastLongitude { get; set; }
+        public double NorthParallel { get; set; }
+        public double SouthParallel { get; set; }
+        public double WestMeridian { get; set; }
+        public double EastMeridian { get; set; }
     }
 }

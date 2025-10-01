@@ -13,10 +13,10 @@ function MainPage() {
 		where North is positive, South is negative, East is positive, West is negative.
 	*/
 	const [area, setArea] = useState({
-		"NorthLatitude": 31, 
-		"SouthLatitude": 24,
-		"WestLongitude": -87,
-		"EastLongitude": -79
+		"NorthParallel": 31, 
+		"SouthParallel": 24,
+		"WestMeridian": -87,
+		"EastMeridian": -79
 	})
 	const [apidata, setData] = useState([]);
 
