@@ -4,8 +4,16 @@ import { stormHeaderColumns, tableCustomStyles } from '../consts/tableStormColum
 import ApiEndpoints from '../ApiEndpoints'
 
 function MainPage() {
+	/* these coordates are meant to form a box such that
+		31 North is the 31st N parallel
+		24 South is the 24th N parallel
+		-87 West is the 87th W meridian
+		-79 East in the 79th W meridian
+		
+		where North is positive, South is negative, East is positive, West is negative.
+	*/
 	const [area, setArea] = useState({
-		"NorthLatitude": 31,
+		"NorthLatitude": 31, 
 		"SouthLatitude": 24,
 		"WestLongitude": -87,
 		"EastLongitude": -79

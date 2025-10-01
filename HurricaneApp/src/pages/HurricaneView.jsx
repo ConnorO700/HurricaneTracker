@@ -20,7 +20,7 @@ function HurricaneView() {
 		<div>
 			
 			<Table title={`${stormData.name}'s Table`} data={stormData.hurricaneDetails} columns={stormDetailColumns} tableStyles={tableCustomStyles} />
-			<div>might add a map here idk</div>
+			
 		</div>
 		</>
 	)
