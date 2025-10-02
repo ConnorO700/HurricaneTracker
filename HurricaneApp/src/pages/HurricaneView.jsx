@@ -23,9 +23,8 @@ function HurricaneView() {
 	return (
 		<>
 			<div>
-
 				<Table title={`${stormData.name}'s Table`} data={stormData.hurricaneDetails} columns={stormDetailColumns} tableStyles={tableCustomStyles} />
-				<Map coords={stormCoords} />
+				<Map title ={`${stormData.name}'s Path`}coords={stormCoords} />
 			</div>
 		</>
 	)
