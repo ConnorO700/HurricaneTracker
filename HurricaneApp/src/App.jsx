@@ -1,4 +1,4 @@
-import Map from './components/Map'
+
 import MainPage from './pages/MainPage'
 import HurricaneView from './pages/HurricaneView'
 import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom'

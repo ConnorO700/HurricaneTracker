@@ -2,13 +2,22 @@ import React, { useEffect, useState } from 'react'
 import { ComposableMap, Geographies, Geography, Line, Sphere, Marker } from '@vnedyalk0v/react19-simple-maps';
 import startIcon from '../assets/s-start.png'
 import endIcon from '../assets/e-end.png'
+import MapLegend from './MapLegend';
+
 const geoUrl = 'https://unpkg.com/world-atlas@2/countries-110m.json';
-function Map({ title, coords }) {
+const dataCategories = [
+	{ name: "WindSpeed > 120 Knots", color: "#000000ff" },
+	{ name: "WindSpeed > 80 Knots", color: "#FF0000" },
+	{ name: "WindSpeed > 40 Knots", color: "#FFA500" },
+	{ name: "WindSpeed < 40 Knots", color: "#FFFF00" },
+];
+function Map({ title, stormPath }) {
 	return (
 		<>
 			<h2 className={'text-3xl font-bold unicolorstxt mt-6 text-center'}>
 				{title}
 			</h2>
+			<MapLegend dataCategories={dataCategories} />
 			<ComposableMap
 				projection="geoEqualEarth"
 				projectionConfig={{
@@ -16,13 +25,13 @@ function Map({ title, coords }) {
 					center: [0, 0],
 				}}
 				width={600}
-				height={500}
+				height={400}
 			>
 				<Geographies geography={geoUrl}>
 					{({ geographies }) =>
-						geographies.map((geo) => (
+						geographies.map((geo, index) => (
 							<Geography
-								key={geo.rsmKey}
+								key={index}
 								geography={geo}
 								style={{
 									default: { fill: '#D6D6DA', outline: 'none' },
@@ -33,13 +42,17 @@ function Map({ title, coords }) {
 						))
 					}
 				</Geographies>
-				<Line
-					coordinates={coords}
-					stroke="#FF5533"
-					strokeWidth={1}
-					strokeLinecap="round"
-				/>
-				<Marker coordinates={coords[0] ?? [0, 0]}>
+				{
+					stormPath.map((lineSegment) => (
+						<Line
+							key={lineSegment.id}
+							coordinates={lineSegment.coords}
+							stroke={lineSegment.color}
+							strokeWidth={1}
+							strokeLinecap="round"
+						/>
+					))}
+				<Marker coordinates={stormPath[0].coords[0] ?? [0, 0]}>
 					<image
 						href={startIcon}
 						x={-5} // Adjust x and y for image centering/positioning
@@ -49,7 +62,7 @@ function Map({ title, coords }) {
 						alt={"start"}
 					/>
 				</Marker>
-				<Marker coordinates={coords[coords.length - 1] ?? [0, 0]}>
+				<Marker coordinates={stormPath[stormPath.length - 1].coords[1] ?? [0, 0]}>
 					<image
 						href={endIcon}
 						x={-5} // Adjust x and y for image centering/positioning
