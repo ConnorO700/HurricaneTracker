@@ -14,3 +14,13 @@ Steps to run on localhost:
 5) Open appsettings.json and modify connectionString,DatabaseName and CollectionName to point towards your preferred MongoDb
 6) build and start api
 7) open HurricaneApp directory and run npm run dev
+
+
+Main Page preview
+<img width="1917" height="811" alt="image" src="https://github.com/user-attachments/assets/796a6420-0a9f-4ef4-8974-76e72913c768" />
+
+Hurricane Details Page
+<img width="1901" height="814" alt="image" src="https://github.com/user-attachments/assets/5d2ab756-a68f-4548-aa81-f339b36d4847" />
+with Map of hurricane path
+<img width="962" height="662" alt="image" src="https://github.com/user-attachments/assets/10a96081-a79f-4c4f-93cb-2be9a4a0f55e" />
+
