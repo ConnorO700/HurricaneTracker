@@ -22,5 +22,7 @@ Main Page preview
 Hurricane Details Page
 <img width="1901" height="814" alt="image" src="https://github.com/user-attachments/assets/5d2ab756-a68f-4548-aa81-f339b36d4847" />
 with Map of hurricane path
-<img width="962" height="662" alt="image" src="https://github.com/user-attachments/assets/10a96081-a79f-4c4f-93cb-2be9a4a0f55e" />
+<img width="1330" height="673" alt="image" src="https://github.com/user-attachments/assets/2a03e473-c3e5-4933-82be-c002e211aa54" />
+
+
 
