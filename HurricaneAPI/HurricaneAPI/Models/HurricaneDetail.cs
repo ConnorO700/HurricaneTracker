@@ -4,7 +4,7 @@
     {
         public string Date { get; set; }
 
-        public char RecordIdentifier { get; set; }
+        public string RecordIdentifier { get; set; }
 
         public string SystemStatus { get; set; }
 
