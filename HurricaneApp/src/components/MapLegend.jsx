@@ -3,8 +3,8 @@ import React from 'react'
 function MapLegend({ dataCategories }) {
 	return (
 		<div className='flex justify-center'>
-			{dataCategories.map((category) => (
-				<div className='flex pr-4'>
+			{dataCategories.map((category, index) => (
+				<div key={index} className='flex pr-4'>
 					<div
 						style={{
 							width: "20px",

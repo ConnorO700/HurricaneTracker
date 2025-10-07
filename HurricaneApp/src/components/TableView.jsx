@@ -9,7 +9,7 @@ function TableView({title, data, columns, tableStyles}) {
             <h2 className={'text-3xl font-bold unicolorstxt mb-6 text-center'}>
             {title}
             </h2>
-            <div className="container-xl lg:container m-auto">
+            <div className="container-xl rounded-lg lg:container m-auto">
             <DataTable columns = {columns}
             data = {data}
             defaultSortFieldId={1}

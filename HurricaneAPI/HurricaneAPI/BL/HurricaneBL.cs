@@ -35,6 +35,16 @@ namespace HurricaneAPI.BL
             await _service.GetAsync(id);
 
 
+
+        public async Task<List<Hurricane> > GetNamed()
+        {
+            var filter = Builders<Hurricane>.Filter.Where(h => h.Name != "UNNAMED");
+
+            var hurricanes = await _service.GetAsync(filter);
+
+            return hurricanes;
+        }
+
         //added CRUD operations but these are not used
         public async Task Create(Hurricane hurrican) =>
             await _service.CreateAsync(hurrican);

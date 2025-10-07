@@ -15,6 +15,9 @@ namespace HurricaneAPI.Services
             _hurricaneCollection = mongoDatabase.GetCollection<Hurricane>(hurricaneDatabaseSettings.Value.CollectionName);
         }
 
+        public async Task<List<Hurricane>> GetAsync(FilterDefinition<Hurricane> filter) =>
+            await _hurricaneCollection.Find(filter).ToListAsync();
+
         public async Task<List<Hurricane>> GetAsync(FilterDefinition<Hurricane> filter, ProjectionDefinition<Hurricane> projection) =>
             await _hurricaneCollection.Find(filter).Project<Hurricane>(projection).ToListAsync();
             

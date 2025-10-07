@@ -42,6 +42,19 @@ namespace HurricaneAPI.Controllers
             return Ok(hurricane);
         }
 
+        [HttpGet("named")]
+        public async Task<ActionResult<List<Hurricane>>> GetNamed()
+        {
+            var hurricanes = await _HurricaneBL.GetNamed();
+
+            if (hurricanes == null)
+            {
+                return NotFound();
+            }
+            return Ok(hurricanes);
+
+        }
+
         //added CRUD operations but these are not used
 
         [HttpPost]

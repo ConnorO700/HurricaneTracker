@@ -9,3 +9,11 @@ GET {{HurricaneAPI_HostAddress}}/hurricaneinfo/default
 GET {{HurricaneAPI_HostAddress}}/all
 
 ###
+
+GET {{HurricaneAPI_HostAddress}}/hurricaneinfo/default
+
+###
+
+GET {{HurricaneAPI_HostAddress}}/hurricaneinfo/named
+
+###

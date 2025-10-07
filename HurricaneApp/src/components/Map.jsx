@@ -43,9 +43,9 @@ function Map({ title, stormPath }) {
 					}
 				</Geographies>
 				{
-					stormPath.map((lineSegment) => (
+					stormPath.map((lineSegment, index) => (
 						<Line
-							key={lineSegment.id}
+							key={index}
 							coordinates={lineSegment.coords}
 							stroke={lineSegment.color}
 							strokeWidth={1}
